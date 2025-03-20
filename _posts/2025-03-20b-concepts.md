@@ -4,7 +4,7 @@ description: Post aim to showcase how a second category is created without subca
 author: Francisco
 date: 2025-03-20 11:33:00 +0800
 categories: [Framework]
-tags: [core][overview]
+tags: [core, overview]
 pin: true
 math: true
 mermaid: true
