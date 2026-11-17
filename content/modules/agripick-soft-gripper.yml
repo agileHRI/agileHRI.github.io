@@ -1,22 +1,7 @@
-# MOCKUP: fictitious module for the catalogue demo.
-name: AgriPick Soft Gripper
-project: AGRIPICK
-organisation: Brisa AgriTech (fictitious)
-country: Portugal
-sector: agrifood
 categories:
   - manipulation
   - perception
-keywords:
-  - fruit
-  - soft gripper
-  - picking
-  - greenhouse
-trl: "6"
-licence: GPL-3.0
-stack: ROS 2 · C++
-repository: https://github.com/example/agripick-soft-gripper
-summary: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
+country: Portugal
 description: |-
   Lorem ipsum dolor sit amet, **consectetur adipiscing elit**, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
@@ -30,3 +15,17 @@ description: |-
 
   Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. *Mockup text.*
 draft: false
+keywords:
+  - fruit
+  - soft gripper
+  - picking
+  - greenhouse
+licence: GPL-3.0
+name: AgriPick Soft Gripper
+organisation: Brisa AgrOTech (fictitious)
+project: AGRIPICK
+repository: https://github.com/example/agripick-soft-gripper
+sector: agrifood
+stack: ROS 2 · C++
+summary: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
+trl: '6'
