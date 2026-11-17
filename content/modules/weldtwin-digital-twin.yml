@@ -1,0 +1,31 @@
+# MOCKUP: fictitious module for the catalogue demo.
+name: WeldTwin Digital Twin
+project: WELDTWIN
+organisation: Ferrolux Systems (fictitious)
+country: Germany
+sector: manufacturing
+categories:
+  - integration
+keywords:
+  - digital twin
+  - welding
+  - simulation
+  - Gazebo
+trl: "7"
+licence: Apache-2.0
+stack: ROS 2 · Gazebo · Vulcanexus
+repository: https://github.com/example/weldtwin-digital-twin
+summary: Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+description: |-
+  Lorem ipsum dolor sit amet, **consectetur adipiscing elit**, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+  ### What it does
+
+  - Ut enim ad minim veniam, quis nostrud exercitation
+  - Duis aute irure dolor in reprehenderit in voluptate
+  - Excepteur sint occaecat cupidatat non proident
+
+  ### How to reuse it
+
+  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. *Mockup text.*
+draft: false

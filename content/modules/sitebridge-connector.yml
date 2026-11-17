@@ -1,0 +1,32 @@
+# MOCKUP: fictitious module for the catalogue demo.
+name: SiteBridge Connector
+project: SITEBRIDGE
+organisation: Taller Andino Labs (fictitious)
+country: Spain
+sector: construction
+categories:
+  - integration
+  - navigation-safety
+keywords:
+  - interoperability
+  - BIM
+  - fleet
+  - API
+trl: "4"
+licence: EUPL-1.2
+stack: ROS 2 · FIWARE · Python
+repository: https://github.com/example/sitebridge-connector
+summary: Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit.
+description: |-
+  Lorem ipsum dolor sit amet, **consectetur adipiscing elit**, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+  ### What it does
+
+  - Ut enim ad minim veniam, quis nostrud exercitation
+  - Duis aute irure dolor in reprehenderit in voluptate
+  - Excepteur sint occaecat cupidatat non proident
+
+  ### How to reuse it
+
+  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. *Mockup text.*
+draft: false

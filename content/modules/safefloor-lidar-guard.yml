@@ -1,0 +1,32 @@
+# MOCKUP: fictitious module for the catalogue demo.
+name: SafeFloor LiDAR Guard
+project: SAFEFLOOR
+organisation: Nordvik Robotics (fictitious)
+country: Norway
+sector: logistics
+categories:
+  - navigation-safety
+  - perception
+keywords:
+  - lidar
+  - forklift
+  - warehouse
+  - collision
+trl: "7"
+licence: Apache-2.0
+stack: ROS 2 Humble · C++
+repository: https://github.com/example/safefloor-lidar-guard
+summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
+description: |-
+  Lorem ipsum dolor sit amet, **consectetur adipiscing elit**, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+  ### What it does
+
+  - Ut enim ad minim veniam, quis nostrud exercitation
+  - Duis aute irure dolor in reprehenderit in voluptate
+  - Excepteur sint occaecat cupidatat non proident
+
+  ### How to reuse it
+
+  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. *Mockup text.*
+draft: false

@@ -1,0 +1,4 @@
+id: integration
+label: Integration & middleware
+description: 'Connecting modules: ROS 2, interfaces, digital twins.'
+order: 6

@@ -49,6 +49,12 @@ source of truth, full history, and any change can be undone with a revert.
 Every save of a published page goes straight to the public site: there is no
 preview step yet (see "Open items"). Use **Draft** while a page isn't ready.
 
+**Safety net**: before publishing, GitHub checks every content file (an empty
+required field, a value outside its list, a module using a category that
+doesn't exist…). If something is wrong, **nothing is published** and the live
+site stays as it was: the **Actions** tab shows a red cross and, under
+"Check content", which file and field to fix.
+
 ### Pages
 
 - **New page**: **Pages → Add**. The **file name is the page's address**:
@@ -93,16 +99,18 @@ npm run generate     # the static site in .output/public (what GitHub Pages serv
 | `app/components/section/` | The section types (Hero, Text, Cards, Quote, ImageText, Discord) |
 | `app/app.vue`, `app/components/` | Layout: top bar (`SiteHeader`) and footer (`SiteFooter`), from `content/site.yml` |
 | `app/assets/css/main.css` | The whole look (colours, sizes, breakpoints), ported from the WordPress theme |
-| `content.config.ts` | The fields each content file must have (checked at build time) |
+| `schemas.ts` | The fields of every content file, in one place |
+| `scripts/validate-content.ts` | The content check (`npm run validate`): runs before every build and stops the publication if a file is wrong |
+| `content.config.ts` | How the site reads the content (uses `schemas.ts`) |
 | `.pages.yml` | The editing forms in Pages CMS |
 | `.github/workflows/deploy.yml` | Build and publish on every push to `main` |
 
 **Adding or renaming a field**: change it in three places, in the same commit:
-the content file (`content/*.yml`), `content.config.ts` and `.pages.yml`; then
-use it in the Vue component.
+the content file (`content/*.yml`), `schemas.ts` and `.pages.yml`; then use it
+in the Vue component. Run `npm run validate`.
 
 **A new section type**: four places, in the same commit: its fields in
-`content.config.ts` (the `sections` union), its form in `.pages.yml` (under
+`schemas.ts` (the `sections` union), its form in `.pages.yml` (under
 `blocks`), its component in `app/components/section/`, and its entry in the
 `components` map of `app/pages/[...slug].vue`. Add it to the example page.
 

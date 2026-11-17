@@ -1,0 +1,32 @@
+# MOCKUP: fictitious module for the catalogue demo.
+name: MoveAlong Shared Path
+project: MOVEALONG
+organisation: Orbis Dynamics (fictitious)
+country: Netherlands
+sector: retail
+categories:
+  - navigation-safety
+  - human-interaction
+keywords:
+  - crowd
+  - navigation
+  - social
+  - mobile robot
+trl: "6"
+licence: MIT
+stack: ROS 2 · Nav2
+repository: https://github.com/example/movealong-shared-path
+summary: Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur.
+description: |-
+  Lorem ipsum dolor sit amet, **consectetur adipiscing elit**, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+  ### What it does
+
+  - Ut enim ad minim veniam, quis nostrud exercitation
+  - Duis aute irure dolor in reprehenderit in voluptate
+  - Excepteur sint occaecat cupidatat non proident
+
+  ### How to reuse it
+
+  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. *Mockup text.*
+draft: false

@@ -1,0 +1,4 @@
+id: learning
+label: Learning from demonstration
+description: Robots that learn a task by watching a person.
+order: 5

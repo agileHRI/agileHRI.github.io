@@ -193,3 +193,81 @@ content:
               - { name: title, label: Heading, type: string, required: true }
               - { name: text, label: Text, type: text }
               - { name: buttonLabel, label: Button text, type: string, required: true }
+
+  - name: modules
+    label: Catalogue · Modules
+    type: collection
+    path: content/modules
+    format: yaml
+    filename:
+      # The file name is the module's address: "my-module" -> /catalogue/my-module
+      template: "{primary}.yml"
+      field: create
+    view:
+      primary: name
+    fields:
+      - { name: name, label: Module name, type: string, required: true }
+      - { name: draft, label: "Draft: keep it out of the catalogue (the repo is public: drafts can be read on GitHub)", type: boolean }
+      - { name: summary, label: Summary (on the card; one or two sentences), type: text, required: true }
+      - { name: project, label: Project, type: string, required: true }
+      - { name: organisation, label: Organisation, type: string, required: true }
+      - { name: country, label: Country, type: string }
+      - name: sector
+        label: Sector
+        type: select
+        required: true
+        options:
+          values:
+            - { name: manufacturing, label: Manufacturing }
+            - { name: logistics, label: Logistics }
+            - { name: healthcare, label: Healthcare }
+            - { name: agrifood, label: Agrifood }
+            - { name: construction, label: Construction }
+            - { name: retail, label: Retail }
+      - name: categories
+        label: Categories (what the module does)
+        type: reference
+        required: true
+        options:
+          collection: categories
+          multiple: true
+          min: 1
+          value: "{fields.id}"
+          label: "{fields.label}"
+      - { name: keywords, label: Keywords (free words for the search), type: string, list: true }
+      - name: trl
+        label: TRL (technology readiness level)
+        type: select
+        required: true
+        options:
+          values: ["4", "5", "6", "7", "8", "9"]
+      - name: licence
+        label: Licence
+        type: select
+        required: true
+        options:
+          values: [Apache-2.0, MIT, BSD-3-Clause, GPL-3.0, LGPL-3.0, EUPL-1.2, MPL-2.0]
+      - { name: stack, label: Technologies (e.g. ROS 2 · Python), type: string }
+      - { name: repository, label: Public repository link, type: string }
+      - name: description
+        label: Description (module page)
+        type: rich-text
+        options:
+          format: markdown
+
+  - name: categories
+    label: Catalogue · Categories
+    type: collection
+    path: content/categories
+    format: yaml
+    filename:
+      template: "{fields.id}.yml"
+      field: false
+    view:
+      primary: label
+    fields:
+      - { name: label, label: Category name, type: string, required: true }
+      - { name: id, label: "Identifier (lower case, no spaces; don't change it once modules use it)", type: string, required: true }
+      - { name: description, label: Short description, type: text }
+      - { name: order, label: Order in the filters, type: number }
+

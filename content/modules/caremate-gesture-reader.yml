@@ -1,0 +1,32 @@
+# MOCKUP: fictitious module for the catalogue demo.
+name: CareMate Gesture Reader
+project: CAREMATE
+organisation: Kalma Health Robotics (fictitious)
+country: Finland
+sector: healthcare
+categories:
+  - perception
+  - human-interaction
+keywords:
+  - gestures
+  - elderly care
+  - camera
+  - pose
+trl: "5"
+licence: Apache-2.0
+stack: ROS 2 · Python · OpenCV
+repository: https://github.com/example/caremate-gesture-reader
+summary: Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.
+description: |-
+  Lorem ipsum dolor sit amet, **consectetur adipiscing elit**, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+  ### What it does
+
+  - Ut enim ad minim veniam, quis nostrud exercitation
+  - Duis aute irure dolor in reprehenderit in voluptate
+  - Excepteur sint occaecat cupidatat non proident
+
+  ### How to reuse it
+
+  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. *Mockup text.*
+draft: false

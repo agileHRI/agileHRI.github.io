@@ -25,6 +25,9 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      # Stops here (nothing is published) if a content file is wrong.
+      - name: Check content
+        run: npm run validate
       - run: npx nuxt generate
       - uses: actions/configure-pages@v4
       - uses: actions/upload-pages-artifact@v3
