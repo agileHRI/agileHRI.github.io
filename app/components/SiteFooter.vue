@@ -9,8 +9,8 @@ defineProps<{ footer: {
   <footer class="ah-footer">
     <div class="ah-wrap">
       <div class="ah-footer-row">
-        <p><strong>AgileHRI</strong> · <a :href="footer.projectLink.url">{{ footer.projectLink.label }}</a> · {{ footer.project }}</p>
-        <p class="ah-footer-right">{{ footer.right }} · <a :href="footer.rightLink.url">{{ footer.rightLink.label }}</a></p>
+        <p><strong>AgileHRI</strong> · <a :href="href(footer.projectLink.url)">{{ footer.projectLink.label }}</a> · {{ footer.project }}</p>
+        <p class="ah-footer-right">{{ footer.right }} · <a :href="href(footer.rightLink.url)">{{ footer.rightLink.label }}</a></p>
       </div>
       <p class="ah-eu">{{ footer.funding }}</p>
     </div>

@@ -10,7 +10,7 @@ const { data: home } = await useAsyncData('home', () => queryCollection('home').
         <p class="ah-tag">{{ home.hero.tag }}</p>
         <h1 :class="{ 'is-subtitle': home.hero.titleStyle === 'subtitle' }">{{ home.hero.title }}</h1>
         <p class="ah-hero-sub">{{ home.hero.text }}</p>
-        <p class="ah-buttons"><a class="ah-btn ah-btn-light" :href="home.hero.button.url">{{ home.hero.button.label }}</a></p>
+        <p class="ah-buttons"><a class="ah-btn ah-btn-light" :href="href(home.hero.button.url)">{{ home.hero.button.label }}</a></p>
       </div>
     </section>
 
@@ -46,7 +46,7 @@ const { data: home } = await useAsyncData('home', () => queryCollection('home').
         <p class="ah-section-sub">{{ home.soon.text }}</p>
         <div class="ah-grid">
           <div v-for="card in home.soon.cards" :key="card.url" class="ah-card ah-tool">
-            <h3><a :href="card.url">{{ card.title }}</a></h3>
+            <h3><a :href="href(card.url)">{{ card.title }}</a></h3>
             <p>{{ card.text }}</p>
             <p><span class="ah-pill">{{ card.pill }}</span></p>
           </div>
