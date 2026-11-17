@@ -37,3 +37,12 @@ sections:
     title: Discord invitation
     text: The button takes the invite link from "Menu and footer".
     buttonLabel: Join ARISE on Discord
+  - type: cards
+    title: This is a new Card
+    cards:
+      - title: first card
+        text: tijs is...
+        url: www.siteone.com
+      - title: Card 2
+        text: This is...
+        url: www.sitetwo.com
