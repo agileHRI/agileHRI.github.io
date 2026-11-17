@@ -5,10 +5,10 @@ draft: false
 
 ::hero
 ---
-tag: Small label
-title: Header (teal band)
 buttonLabel: Button text
 buttonUrl: https://agilehri.github.io
+tag: Small label
+title: Header (teal band)
 ---
 One or two sentences under the title. The button is optional.
 ::
@@ -43,7 +43,7 @@ Rich text: **bold**, *italic* and [links](https://agilehri.github.io).
 A sentence to highlight, in the orange box.
 ::
 
-::discord{title="Discord invitation" buttonLabel="Join ARISE on Discord"}
+::discord{button-label="Join ARISE on Discord" title="Discord invitation"}
 The button takes the invite link from "Menu and footer".
 ::
 
