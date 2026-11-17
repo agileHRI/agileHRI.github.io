@@ -49,7 +49,7 @@ The button takes the invite link from "Menu and footer".
 
 ::cards{title="This is a new Card"}
   :::card{title="first card" url="www.siteone.com"}
-  tijs is...
+  Testing my new card
   :::
 
   :::card{title="Card 2" url="www.sitetwo.com"}
