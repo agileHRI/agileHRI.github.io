@@ -1,0 +1,115 @@
+# Pages CMS (https://pagescms.org): the editing forms for content/*.yml.
+# Keep the fields in step with content.config.ts (the site reads the same names).
+media:
+  input: public/images
+  output: /images
+
+content:
+  - name: home
+    label: Home page
+    type: file
+    path: content/home.yml
+    format: yaml
+    fields:
+      - name: hero
+        label: Header (teal band)
+        type: object
+        fields:
+          - { name: tag, label: Small label above the title, type: string }
+          - { name: title, label: Title, type: string }
+          - name: titleStyle
+            label: Title size
+            type: select
+            options:
+              values:
+                - { name: large, label: Large }
+                - { name: subtitle, label: Subtitle (smaller) }
+          - { name: text, label: Text under the title, type: text }
+          - name: button
+            label: Button
+            type: object
+            fields:
+              - { name: label, label: Button text, type: string }
+              - { name: url, label: Link, type: string }
+      - name: cycle
+        label: Cycle (dark band)
+        type: object
+        fields:
+          - { name: tag, label: Small label, type: string }
+          - name: steps
+            label: Steps (numbered automatically)
+            type: object
+            list: true
+            fields:
+              - { name: label, label: Step name, type: string }
+              - { name: text, label: Description, type: text }
+          - name: loop
+            label: Last step (back to the start, in orange)
+            type: object
+            fields:
+              - { name: label, label: Step name, type: string }
+              - { name: text, label: Description, type: text }
+          - { name: note, label: Note under the cycle, type: text }
+      - name: stats
+        label: Figures (white band)
+        type: object
+        list: true
+        fields:
+          - { name: number, label: Figure, type: string }
+          - { name: label, label: What it counts, type: string }
+      - name: soon
+        label: Coming soon section
+        type: object
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: text, label: Text, type: text }
+          - name: cards
+            label: Cards
+            type: object
+            list: true
+            fields:
+              - { name: title, label: Card title, type: string }
+              - { name: text, label: Card text, type: text }
+              - { name: url, label: Link, type: string }
+              - { name: pill, label: Label in the small pill, type: string }
+      - name: quote
+        label: Quote (orange box)
+        type: object
+        fields:
+          - { name: text, label: Quote, type: text }
+          - { name: source, label: Source, type: string }
+
+  - name: site
+    label: Menu and footer
+    type: file
+    path: content/site.yml
+    format: yaml
+    fields:
+      - { name: title, label: Site name (browser tab), type: string }
+      - { name: description, label: Site description (search engines), type: text }
+      - name: menu
+        label: Menu links
+        type: object
+        list: true
+        fields:
+          - { name: label, label: Text, type: string }
+          - { name: url, label: Link, type: string }
+      - name: footer
+        label: Footer
+        type: object
+        fields:
+          - { name: project, label: Project line, type: string }
+          - name: projectLink
+            label: Project link
+            type: object
+            fields:
+              - { name: label, label: Text, type: string }
+              - { name: url, label: Link, type: string }
+          - { name: right, label: Right-hand text, type: string }
+          - name: rightLink
+            label: Right-hand link
+            type: object
+            fields:
+              - { name: label, label: Text, type: string }
+              - { name: url, label: Link, type: string }
+          - { name: funding, label: EU funding notice (do not remove), type: text }

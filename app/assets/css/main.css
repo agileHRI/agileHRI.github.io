@@ -1,0 +1,103 @@
+/* AgileHRI look (ARISE pack prototype), ported from the WordPress theme
+   agileHRI/agilehri-site: same colours, sizes and breakpoints. */
+
+:root {
+	--ah-teal: #006B6B; --ah-teal-d: #004F4F; --ah-teal-l: #E0F0F0; --ah-teal-ll: #F2FAFA; --ah-teal-accent: #7DD3D3;
+	--ah-orange: #C84B00; --ah-orange-l: #FFF3EC;
+	--ah-dark: #1A1A1A; --ah-mid: #555; --ah-light: #F7F7F7; --ah-gray: #E0E0E0;
+	--ah-pad: clamp(20px, 4vw, 48px);
+	--ah-font: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* --- Base -------------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--ah-light); color: var(--ah-dark); font-family: var(--ah-font); font-size: 15px; line-height: 1.6; }
+h1, h2, h3 { color: var(--ah-teal-d); font-weight: 800; letter-spacing: -0.01em; line-height: 1.15; margin: 0; }
+h1 { font-size: clamp(1.9rem, 4vw, 2.6rem); }
+h2 { font-size: 1.45rem; }
+h3 { font-size: 1.1rem; }
+p { margin: 0; }
+a { color: var(--ah-teal); }
+
+/* Footer at the bottom of the window, even on short pages. */
+.ah-page { min-height: 100vh; display: flex; flex-direction: column; }
+.ah-main { flex: 1 0 auto; }
+
+/* Content of every band: centred, at most 1100px wide. */
+.ah-wrap { max-width: 1100px; margin-inline: auto; }
+.ah-wrap > * + * { margin-top: 10px; }
+
+/* --- Top bar ------------------------------------------------------------------ */
+.ah-nav { position: sticky; top: 0; z-index: 100; background: var(--ah-teal-d); min-height: 48px; padding: 0 var(--ah-pad); display: flex; align-items: center; gap: 32px; }
+.ah-logo { font-size: 1rem; font-weight: 800; white-space: nowrap; color: #fff; text-decoration: none; }
+.ah-logo span { color: var(--ah-teal-accent); }
+.ah-menu { display: flex; gap: 16px; flex-wrap: wrap; }
+.ah-menu a { color: rgba(255,255,255,.62); font-size: .74rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; text-decoration: none; padding: 14px 4px; border-bottom: 2px solid transparent; }
+.ah-menu a:hover { color: #fff; }
+
+/* --- Hero ---------------------------------------------------------------------- */
+.ah-hero { background: var(--ah-teal); color: #fff; padding: 56px var(--ah-pad) 48px; }
+.ah-tag { font-size: .7rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--ah-teal-l); }
+.ah-hero h1 { color: #fff; margin-top: .5rem; max-width: 680px; }
+/* Title style "subtitle": smaller headline (the WordPress parent theme's Text subtitle). */
+.ah-hero h1.is-subtitle { font-size: clamp(1.5rem, 1.5rem + ((1vw - 0.2rem) * 0.392), 1.75rem); line-height: 1.2; }
+.ah-hero-sub { color: #B8D8D8; font-size: 1.05rem; max-width: 680px; }
+.ah-buttons { margin-top: 28px !important; }
+
+/* --- Buttons --------------------------------------------------------------------- */
+.ah-btn { display: inline-block; background: var(--ah-teal-d); color: #fff; font-size: .85rem; font-weight: 800; border-radius: 6px; padding: 10px 22px; text-decoration: none; }
+.ah-btn:hover { background: var(--ah-teal); }
+.ah-btn-light { background: #fff; color: var(--ah-teal-d); }
+.ah-btn-light:hover { background: #fff; opacity: .9; }
+
+/* --- Cycle band ------------------------------------------------------------------- */
+.ah-cycle { background: var(--ah-teal-d); color: #fff; padding: 32px var(--ah-pad); }
+.ah-cycle .ah-tag { margin-bottom: 20px; }
+.ah-cycle-steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+.ah-cycle-step { text-align: center; position: relative; display: flex; flex-direction: column; align-items: center; }
+.ah-cycle-step:not(:last-child)::after { content: "›"; position: absolute; right: -10px; top: 4px; font-size: 1.4rem; color: rgba(255,255,255,.4); }
+.ah-num { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,.15); border: 2px solid rgba(255,255,255,.4); display: flex; align-items: center; justify-content: center; font-weight: 800; margin-bottom: 8px; color: #fff; }
+.ah-loop .ah-num { background: rgba(200,75,0,.35); border-color: var(--ah-orange); }
+.ah-loop .ah-step-label { color: #F5B38A; }
+.ah-step-label { font-size: .85rem; font-weight: 700; color: #fff; line-height: 1.2; }
+.ah-step-sub { font-size: .72rem; color: rgba(255,255,255,.6); line-height: 1.35; margin-top: 3px; }
+.ah-cycle-note { text-align: center; margin-top: 18px !important; font-size: .75rem; letter-spacing: .05em; color: rgba(255,255,255,.45); }
+@media (max-width: 900px) { .ah-cycle-steps { grid-template-columns: repeat(3, 1fr); row-gap: 20px; } .ah-cycle-step::after { display: none; } }
+@media (max-width: 520px) { .ah-cycle-steps { grid-template-columns: repeat(2, 1fr); } }
+
+/* --- Stats band -------------------------------------------------------------------- */
+.ah-stats { background: #fff; border-bottom: 1px solid var(--ah-gray); display: grid; grid-template-columns: repeat(5, 1fr); }
+.ah-stat { text-align: center; padding: 20px 16px; border-right: 1px solid var(--ah-gray); }
+.ah-stat:last-child { border-right: 0; }
+.ah-stat-num { font-size: 1.9rem; font-weight: 800; color: var(--ah-teal-d); line-height: 1.1; }
+.ah-stat-label { font-size: .78rem; color: var(--ah-mid); margin-top: 3px; }
+@media (max-width: 760px) { .ah-stats { grid-template-columns: repeat(2, 1fr); } .ah-stat { border-bottom: 1px solid var(--ah-gray); } .ah-stat:last-child { grid-column: 1 / -1; } }
+
+/* --- Sections, cards, quote ---------------------------------------------------------- */
+.ah-section { padding: 40px var(--ah-pad); }
+.ah-section-title { font-size: 1.3rem; margin-bottom: 6px; }
+.ah-section-sub { color: var(--ah-mid); max-width: 640px; margin-bottom: 24px !important; }
+.ah-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.ah-wrap > .ah-grid + * { margin-top: 20px; }
+@media (max-width: 900px) { .ah-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .ah-grid { grid-template-columns: 1fr; } }
+.ah-card { background: #fff; border: 1px solid var(--ah-gray); border-radius: 8px; padding: 24px; position: relative; transition: all .2s; }
+.ah-card > * + * { margin-top: 8px; }
+.ah-card.ah-tool { border-top: 3px solid var(--ah-teal-l); padding: 16px; border-radius: 6px; }
+.ah-card.ah-tool:hover { border-top-color: var(--ah-teal); box-shadow: 0 2px 10px rgba(0,107,107,.1); }
+.ah-card.ah-tool h3 { font-size: .95rem; }
+.ah-card.ah-tool h3 a { color: var(--ah-teal-d); text-decoration: none; }
+.ah-card.ah-tool h3 a::after { content: ""; position: absolute; inset: 0; } /* whole card clickable */
+.ah-card.ah-tool p { font-size: .85rem; color: var(--ah-mid); line-height: 1.55; }
+.ah-pill { display: inline-block; font-size: .68rem; font-weight: 700; background: var(--ah-teal-l); color: var(--ah-teal-d); padding: 2px 10px; border-radius: 10px; }
+.ah-quote { background: var(--ah-orange-l); border-left: 3px solid var(--ah-orange); border-radius: 0 6px 6px 0; padding: 14px 18px; margin: 32px 0 0 !important; }
+.ah-quote p { font-style: italic; font-size: .95rem; }
+.ah-quote cite { display: block; margin-top: 8px; color: var(--ah-orange); font-weight: 700; font-size: .78rem; font-style: normal; }
+
+/* --- Footer ------------------------------------------------------------------------ */
+.ah-footer { background: var(--ah-teal-d); color: var(--ah-teal-l); padding: 24px var(--ah-pad); font-size: .78rem; }
+.ah-footer a { color: var(--ah-teal-accent); }
+.ah-footer-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
+.ah-footer-right { color: rgba(255,255,255,.55); }
+.ah-eu { color: rgba(255,255,255,.45); font-size: .7rem; margin-top: 14px !important; }

@@ -1,0 +1,16 @@
+# Settings shared by every page: menu and footer. Edited with Pages CMS.
+title: AgileHRI
+description: Human-Robot Interaction ecosystem (ARISE WP7, Horizon Europe GA 101135784).
+menu:
+  - label: Discord
+    url: https://discord.gg/8UdphaTh
+footer:
+  project: Horizon Europe GA 101135784
+  projectLink:
+    label: arise-middleware.eu
+    url: https://arise-middleware.eu
+  right: WP7 Communication & Exploitation
+  rightLink:
+    label: Discord
+    url: https://discord.gg/8UdphaTh
+  funding: Funded by the European Union under the Horizon Europe programme, ARISE project, grant agreement No 101135784. Views and opinions expressed are those of the author(s) only and do not necessarily reflect those of the European Union. Neither the European Union nor the granting authority can be held responsible for them.

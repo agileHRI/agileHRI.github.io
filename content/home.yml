@@ -1,0 +1,56 @@
+# Home page. Edited with Pages CMS (see .pages.yml) or by hand.
+hero:
+  tag: AgileHRI · Global HRI Ecosystem
+  title: Connecting European HRI Innovations towards a global, lasting ecosystem
+  titleStyle: subtitle
+  text: AgileHRI connects structured knowledge, persistent communities and reusable technical assets so that HRI results survive individual projects and generate new collaboration.
+  button:
+    label: Join ARISE on Discord
+    url: https://discord.gg/8UdphaTh
+cycle:
+  tag: From funded project to sustainable ecosystem
+  steps:
+    - label: Challenge
+      text: Industrial HRI barrier identified & scoped by TEFs, DIHs, sector operators
+    - label: TEF/DIH Experiment
+      text: Shared facility exploration & testing at TRL 6–7
+    - label: HRI Module
+      text: Skill or capability developed, integrated & validated
+    - label: Validation
+      text: PoC/MVP validated; industrial use case documented & measured
+    - label: Reusable Asset
+      text: Open resource ready for replication by any DIH, TEF or SME
+  loop:
+    label: New Challenge
+    text: Assets and relationships seed new projects
+  note: "You can enter this cycle at any step: propose a challenge, reuse a module, or validate at a TEF"
+stats:
+  - number: "13"
+    label: Experiments completed (OC1)
+  - number: "6"
+    label: TEFs · Testing facilities
+  - number: "6"
+    label: Industrial sectors
+  - number: 13+
+    label: Open modules released
+  - number: TRL 6+
+    label: Validation maturity
+soon:
+  title: Coming soon
+  text: A catalogue of the open-source HRI modules released by the 13 projects of ARISE Open Call 1, and the paths to build, validate and reuse them.
+  cards:
+    - title: Technical Documentation Hub
+      text: "The ARISE technical stack: framework, API references, architecture guides and integration tutorials."
+      url: https://arise-framework-documentation.readthedocs.io/en/latest/
+      pill: Read the Docs
+    - title: ROS4HRI Skills & Packages
+      text: The open catalogue of reusable robot skills and HRI packages.
+      url: https://ros4hri.github.io/
+      pill: Open source
+    - title: ARISE on Discord
+      text: Questions, technical exchange and real-time coordination with the ARISE community.
+      url: https://discord.gg/8UdphaTh
+      pill: Join
+quote:
+  text: ARISE Commons is not a static repository, but a Living Framework connecting technology, people and processes under transparent governance rules.
+  source: D7.3 ARISE Commons · Horizon Europe GA 101135784
