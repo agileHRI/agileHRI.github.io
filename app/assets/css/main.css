@@ -101,3 +101,38 @@ a { color: var(--ah-teal); }
 .ah-footer-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
 .ah-footer-right { color: rgba(255,255,255,.55); }
 .ah-eu { color: rgba(255,255,255,.45); font-size: .7rem; margin-top: 14px !important; }
+
+/* --- Pages created in Pages CMS: sections ---------------------------------------- */
+.ah-hero.ah-page-hero { padding: 40px var(--ah-pad); }
+.ah-section + .ah-section { padding-top: 0; }            /* one gap between sections, not two */
+.ah-title-band { padding-bottom: 0; }
+.ah-title-band + .ah-section { padding-top: 20px; }
+.ah-head { font-size: 1.1rem; color: var(--ah-teal-d); padding-bottom: 6px; border-bottom: 2px solid var(--ah-teal-l); margin-bottom: 14px; }
+.ah-body { max-width: 760px; white-space: pre-line; }
+.ah-card.ah-small { padding: 20px; border-radius: 6px; }
+.ah-card.ah-small h3 { color: var(--ah-teal-d); font-size: .95rem; }
+.ah-card.ah-small h3 a { color: inherit; text-decoration: none; }
+.ah-card.ah-small p { font-size: .85rem; color: var(--ah-mid); line-height: 1.55; }
+.ah-card.ah-link:hover { border-color: var(--ah-teal); box-shadow: 0 4px 16px rgba(0,107,107,.12); transform: translateY(-2px); }
+.ah-card.ah-link h3 a::after { content: ""; position: absolute; inset: 0; } /* whole card clickable */
+.ah-media { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
+.ah-media > * + * { margin-top: 0; }
+.ah-media img { width: 100%; height: auto; border-radius: 8px; display: block; }
+.ah-media-right img { order: 2; }
+@media (max-width: 760px) { .ah-media { grid-template-columns: 1fr; gap: 16px; } .ah-media-right img { order: 0; } }
+.ah-btn-discord { background: #5865F2; color: #fff; }
+.ah-btn-discord:hover { background: #4752C4; }
+.ah-section .ah-buttons { margin-top: 16px !important; }
+.ah-wrap > .ah-quote:first-child { margin-top: 0 !important; } /* a Quote section: no extra gap above */
+
+/* Rich text (Markdown from Pages CMS): paragraphs, lists with arrows, links, subheadings. */
+.ah-rich { white-space: normal; }
+.ah-rich > * + * { margin-top: 12px; }
+.ah-rich h2, .ah-rich h3 { font-size: 1rem; color: var(--ah-teal-d); margin-top: 20px; }
+.ah-rich ul { list-style: none; padding-left: 0; }
+.ah-rich ul li { position: relative; padding-left: 16px; margin-bottom: 6px; }
+.ah-rich ul li::before { content: "›"; position: absolute; left: 0; color: var(--ah-teal); font-weight: 800; }
+.ah-rich ol { padding-left: 20px; }
+.ah-rich a { color: var(--ah-teal); font-weight: 600; }
+.ah-rich blockquote { margin: 0; padding-left: 14px; border-left: 3px solid var(--ah-teal-l); color: var(--ah-mid); }
+.ah-rich :is(h2, h3, h4) a { color: inherit; text-decoration: none; font-weight: inherit; } /* subheadings are self-links (shareable #anchor); don't look like links */

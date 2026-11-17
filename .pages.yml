@@ -87,6 +87,7 @@ content:
     fields:
       - { name: title, label: Site name (browser tab), type: string }
       - { name: description, label: Site description (search engines), type: text }
+      - { name: discord, label: Discord invite link (used by every Discord section), type: string }
       - name: menu
         label: Menu links
         type: object
@@ -113,3 +114,82 @@ content:
               - { name: label, label: Text, type: string }
               - { name: url, label: Link, type: string }
           - { name: funding, label: EU funding notice (do not remove), type: text }
+
+  - name: pages
+    label: Pages
+    type: collection
+    path: content/pages
+    format: yaml
+    filename:
+      # The file name is the page's address: "events" -> /events
+      template: "{primary}.yml"
+      field: create
+    fields:
+      - { name: title, label: Page title (browser tab and top of the page), type: string, required: true }
+      - { name: draft, label: "Draft: keep it off the site (the repo is public: drafts can be read on GitHub)", type: boolean }
+      - name: sections
+        label: Sections
+        type: block
+        list: true
+        blockKey: type
+        blocks:
+          - name: hero
+            label: Header (teal band)
+            fields:
+              - { name: tag, label: Small label above the title, type: string }
+              - { name: title, label: Title, type: string, required: true }
+              - { name: text, label: Text, type: text }
+              - { name: buttonLabel, label: Button text (optional), type: string }
+              - { name: buttonUrl, label: Button link, type: string }
+          - name: text
+            label: Text
+            fields:
+              - { name: title, label: Heading (optional), type: string }
+              - name: body
+                label: Text
+                type: rich-text
+                required: true
+                options:
+                  format: markdown
+          - name: cards
+            label: Cards
+            fields:
+              - { name: title, label: Heading (optional), type: string }
+              - name: cards
+                label: Cards
+                type: object
+                list: true
+                fields:
+                  - { name: title, label: Card title, type: string, required: true }
+                  - { name: text, label: Card text, type: text }
+                  - { name: url, label: Link (optional; the whole card becomes clickable), type: string }
+          - name: quote
+            label: Quote (orange box)
+            fields:
+              - { name: text, label: Quote, type: text, required: true }
+              - { name: source, label: Source, type: string }
+          - name: imageText
+            label: Image and text
+            fields:
+              - { name: image, label: Image, type: image, required: true }
+              - { name: alt, label: Image description (for screen readers), type: string, required: true }
+              - name: imageSide
+                label: Image on the
+                type: select
+                options:
+                  values:
+                    - { name: left, label: Left }
+                    - { name: right, label: Right }
+              - { name: title, label: Heading (optional), type: string }
+              - name: body
+                label: Text
+                type: rich-text
+                required: true
+                options:
+                  format: markdown
+          - name: discord
+            label: Discord invitation
+            fields:
+              - { name: title, label: Heading, type: string, required: true }
+              - { name: text, label: Text, type: text }
+              - { name: buttonLabel, label: Button text, type: string, required: true }

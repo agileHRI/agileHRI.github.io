@@ -1,6 +1,7 @@
 # Settings shared by every page: menu and footer. Edited with Pages CMS.
 title: AgileHRI
 description: Human-Robot Interaction ecosystem (ARISE WP7, Horizon Europe GA 101135784).
+discord: https://discord.gg/8UdphaTh
 menu:
   - label: Discord
     url: https://discord.gg/8UdphaTh
