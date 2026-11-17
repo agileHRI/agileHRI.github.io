@@ -10,12 +10,12 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs'
 // and NUXT_STUDIO would replace Studio's whole configuration with the text "true".
 const studio = process.env.AGILEHRI_STUDIO === 'true'
 
-// Every file in content/pages/ becomes a page: <route>.yml -> /<route>,
+// Every file in content/pages/ becomes a page: <route>.md -> /<route>,
 // except drafts ("draft: true"). Listed here so the static build generates a
 // page even if nothing links to it.
 const isDraft = (file: string) => /^draft:\s*true\s*$/m.test(readFileSync(`content/pages/${file}`, 'utf8'))
-const pageFiles = existsSync('content/pages') ? readdirSync('content/pages').filter(f => f.endsWith('.yml')) : []
-const toRoute = (f: string) => '/' + f.replace(/\.yml$/, '')
+const pageFiles = existsSync('content/pages') ? readdirSync('content/pages').filter(f => f.endsWith('.md')) : []
+const toRoute = (f: string) => '/' + f.replace(/\.md$/, '')
 const pageRoutes = pageFiles.filter(f => !isDraft(f)).map(toRoute)
 // A published page may link to a draft: skip it instead of failing the whole build.
 const draftRoutes = pageFiles.filter(isDraft).map(toRoute)
@@ -42,6 +42,9 @@ export default defineNuxtConfig({
         // (which would cover every private repo of whoever signs in).
         private: false,
       },
+      // The "/" menu of the page editor offers only the site's sections
+      // (app/components/content/), not every component of the site.
+      editor: { components: { include: ['Hero', 'Cards', 'Card', 'Quote', 'ImageText', 'Discord'] } },
     },
   }),
   nitro: {

@@ -184,3 +184,12 @@ a { color: var(--ah-teal); }
 .ah-clear { font: inherit; font-size: .78rem; font-weight: 700; color: var(--ah-teal); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; }
 .ah-empty { background: #fff; border: 1px dashed var(--ah-gray); border-radius: 8px; padding: 32px; text-align: center; color: var(--ah-mid); }
 .ah-empty .ah-btn { margin-top: 12px; border: 0; cursor: pointer; font: inherit; font-weight: 800; }
+
+/* Markdown pages: headings in the free text between sections look like section titles;
+   the first band after the page title keeps the short gap. */
+/* the text keeps a readable width; its section titles span the whole band */
+.ah-page-text { max-width: none; }
+.ah-page-text > :not(h2) { max-width: 760px; }
+.ah-page-text > h2 { font-size: 1.1rem; color: var(--ah-teal-d); padding-bottom: 6px; border-bottom: 2px solid var(--ah-teal-l); margin: 28px 0 14px; max-width: none; }
+.ah-page-text > h2:first-child { margin-top: 0; }
+.ah-title-band + div > .ah-section:first-child { padding-top: 20px; }

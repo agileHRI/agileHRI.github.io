@@ -49,22 +49,13 @@ export const site = z.object({
   }),
 })
 
-// A page is a list of sections; "type" says which kind (see app/components/section/).
+// A page (content/pages/<route>.md): these fields go at the top of the file
+// (frontmatter); the rest is Markdown with sections (app/components/content/).
 export const page = z.object({
   title: text,
+  description: z.string().optional(),
   // A draft is kept in the repo but not published (not generated, not shown).
   draft: z.boolean().default(false),
-  sections: z.array(z.discriminatedUnion('type', [
-    z.object({ type: z.literal('hero'), tag: z.string().optional(), title: text, text: z.string().optional(),
-      buttonLabel: z.string().optional(), buttonUrl: z.string().optional() }),
-    z.object({ type: z.literal('text'), title: z.string().optional(), body: text }),
-    z.object({ type: z.literal('cards'), title: z.string().optional(),
-      cards: z.array(z.object({ title: text, text: z.string().optional(), url: z.string().optional() })) }),
-    z.object({ type: z.literal('quote'), text, source: z.string().optional() }),
-    z.object({ type: z.literal('imageText'), image: text, alt: text, title: z.string().optional(),
-      body: text, imageSide: z.enum(['left', 'right']).default('left') }),
-    z.object({ type: z.literal('discord'), title: text, text: z.string().optional(), buttonLabel: text }),
-  ])).default([]),
 })
 
 // Catalogue: what a module does (editable list). Modules store the category key.

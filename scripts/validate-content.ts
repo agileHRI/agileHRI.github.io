@@ -11,10 +11,10 @@ import { category, home, module, page, site } from '../schemas.ts'
 
 const errors: string[] = []
 
-function check<T extends ZodTypeAny>(file: string, schema: T) {
+function check<T extends ZodTypeAny>(file: string, schema: T, extract = (source: string) => source) {
   let data: unknown
   try {
-    data = parse(readFileSync(file, 'utf8'))
+    data = parse(extract(readFileSync(file, 'utf8')))
   } catch (e) {
     errors.push(`${file}: not valid YAML (${(e as Error).message.split('\n')[0]})`)
     return undefined
@@ -28,13 +28,22 @@ function check<T extends ZodTypeAny>(file: string, schema: T) {
   return result.data
 }
 
-const filesIn = (dir: string) => existsSync(dir)
-  ? readdirSync(dir).filter(f => f.endsWith('.yml')).map(f => `${dir}/${f}`)
+const filesIn = (dir: string, ext = '.yml') => existsSync(dir)
+  ? readdirSync(dir).filter(f => f.endsWith(ext)).map(f => `${dir}/${f}`)
   : []
+
+// The fields at the top of a Markdown file (frontmatter), as YAML text.
+function frontmatter(source: string) {
+  const m = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?/.exec(source)
+  if (!m) throw new Error('missing the fields at the top (between two --- lines)')
+  return m[1]
+}
 
 check('content/home.yml', home)
 check('content/site.yml', site)
-for (const file of filesIn('content/pages')) check(file, page)
+// Pages are Markdown: check the fields at the top (between the two --- lines).
+for (const file of filesIn('content/pages', '.md')) check(file, page, frontmatter)
+for (const file of filesIn('content/pages')) errors.push(`${file}: pages are Markdown now (.md), not .yml`)
 
 // Categories: the file name must be the key (Pages CMS names it that way).
 const categoryIds = new Set<string>()
