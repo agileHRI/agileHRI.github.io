@@ -149,3 +149,20 @@ a { color: var(--ah-teal); }
 .ah-stack-line { font-size: .72rem; color: var(--ah-mid); margin-top: auto; }
 .ah-mockup { background: var(--ah-orange-l); border: 1px dashed var(--ah-orange); color: #7a2e00; border-radius: 6px; padding: 8px 12px; font-size: .82rem; }
 .ah-count { font-size: .8rem; color: var(--ah-mid); }
+.ah-mod:hover { border-color: var(--ah-teal); box-shadow: 0 4px 16px rgba(0,107,107,.12); transform: translateY(-2px); }
+.ah-mod-top h3 a { color: inherit; text-decoration: none; }
+.ah-mod-top h3 a::after { content: ""; position: absolute; inset: 0; } /* whole card clickable */
+
+/* Module page */
+.ah-back { color: var(--ah-teal-l); text-decoration: none; }
+.ah-back:hover { color: #fff; }
+.ah-hero .ah-badge { margin: 8px 0 0; }
+.ah-detail { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 32px; align-items: start; margin-top: 24px !important; }
+.ah-facts { background: #fff; border: 1px solid var(--ah-gray); border-top: 3px solid var(--ah-teal); border-radius: 6px; padding: 16px; }
+.ah-facts dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 8px 14px; font-size: .85rem; }
+.ah-facts dt { color: var(--ah-mid); font-weight: 600; }
+.ah-facts dd { margin: 0; color: var(--ah-dark); }
+.ah-facts .ah-btn { margin-top: 16px; }
+.ah-cap { text-transform: capitalize; }
+.ah-btn-code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .74rem; font-weight: 700; padding: 8px 12px; border-radius: 5px; word-break: break-all; }
+@media (max-width: 800px) { .ah-detail { grid-template-columns: 1fr; } }

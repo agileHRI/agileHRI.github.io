@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // One module in the catalogue (design: the ARISE pack prototype's module card).
 defineProps<{
-  m: { name: string; organisation: string; country?: string; sector: string; trl: string; licence: string; summary: string; categories: string[] }
+  m: { stem: string; name: string; organisation: string; country?: string; sector: string; trl: string; licence: string; summary: string; categories: string[] }
   categoryLabel: (id: string) => string
 }>()
 </script>
@@ -10,7 +10,7 @@ defineProps<{
   <article class="ah-mod">
     <div class="ah-mod-top">
       <span class="ah-badge">{{ m.sector }} · TRL {{ m.trl }}</span>
-      <h3>{{ m.name }}</h3>
+      <h3><NuxtLink :to="`/catalogue/${m.stem.replace(/^modules\//, '')}`">{{ m.name }}</NuxtLink></h3>
       <p class="ah-mod-exp">{{ m.organisation }}<template v-if="m.country"> · {{ m.country }}</template></p>
     </div>
     <div class="ah-mod-body">
