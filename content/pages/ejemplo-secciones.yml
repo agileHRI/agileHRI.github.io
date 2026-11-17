@@ -1,5 +1,5 @@
 title: Example of every section
-draft: true
+draft: false
 sections:
   - type: hero
     tag: Small label
@@ -9,7 +9,7 @@ sections:
     buttonUrl: https://agilehri.github.io
   - type: text
     title: Text
-    body: |-
+    body: |+
       Rich text: **bold**, *italic* and [links](https://agilehri.github.io).
 
       ### A subheading
@@ -19,6 +19,7 @@ sections:
 
       1. A numbered list
       2. Second item
+
   - type: cards
     title: Cards
     cards:
