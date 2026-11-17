@@ -101,6 +101,51 @@ the pages say so.
   They live in the address (`/catalogue?category=perception&trl=6&q=lidar`),
   so a filtered view can be shared. Without JavaScript all cards are shown.
 
+## Editing app with live preview (Nuxt Studio, trial)
+
+`https://dev-cms.agilehri.org` runs the same site as a Node.js app on
+Hostinger with **Nuxt Studio** (module `nuxt-studio`, MIT): editors change the
+content **on the page itself, with live preview**, and each publish is a
+commit to `main`, exactly like a Pages CMS save (same content check, same
+public site). The public site (GitHub Pages) is built without Studio.
+
+- Open `https://dev-cms.agilehri.org/_studio` and sign in with GitHub.
+- **Only the GitHub accounts whose primary e-mail is in
+  `STUDIO_GITHUB_MODERATORS` can sign in** (everyone else gets "not
+  authorized"); publishing also needs write access to this repository.
+- GitHub is asked only for `public_repo` (+ `user:email`), not `repo`.
+- Every page of the editing app is `noindex` (not in search engines).
+
+**Build and run** (Hostinger hPanel → Node.js app for `dev-cms.agilehri.org`,
+connected to this repository, branch `main`, Node 22):
+
+| Setting | Value |
+|---|---|
+| Build command | `npm run build:app` (content check + `nuxt build` with Studio) |
+| Start command / entry | `npm run start` (= `node .output/server/index.mjs`) |
+| Node.js version | 22 (needs 22.5+; Nuxt Content uses Node's built-in SQLite) |
+
+**Environment variables** (hPanel; never in the repository):
+
+| Variable | Value |
+|---|---|
+| `STUDIO_GITHUB_CLIENT_ID` | Client ID of the GitHub OAuth App (below) |
+| `STUDIO_GITHUB_CLIENT_SECRET` | Its client secret |
+| `STUDIO_GITHUB_REDIRECT_URL` | `https://dev-cms.agilehri.org/__nuxt_studio/auth/github` (set explicitly: behind the hosting's proxy the app may not see https) |
+| `STUDIO_GITHUB_MODERATORS` | Allowed GitHub primary e-mails, comma-separated, no spaces, exact |
+| `NUXT_STUDIO_AUTH_SESSION_SECRET` | A long random string (`openssl rand -hex 32`); changing it signs everyone out |
+
+**GitHub OAuth App** (GitHub → Settings → Developer settings → OAuth Apps →
+New): homepage `https://dev-cms.agilehri.org`, authorization callback URL
+`https://dev-cms.agilehri.org/__nuxt_studio/auth/github`.
+
+**Revoking access**: remove the e-mail from `STUDIO_GITHUB_MODERATORS` and
+restart the app; to end open sessions at once, change the session secret.
+
+Note for maintainers: the build switch is `AGILEHRI_STUDIO=true` (in
+`build:app`), not `NUXT_STUDIO`: Nuxt treats every `NUXT_*` variable as a
+runtime-config override.
+
 ## Working on the design (maintainer)
 
 Needs Node.js **22.5 or newer** (Nuxt Content uses Node's built-in SQLite).

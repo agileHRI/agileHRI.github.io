@@ -7,11 +7,14 @@
     "dev": "nuxt dev",
     "validate": "node --experimental-strip-types scripts/validate-content.ts",
     "generate": "npm run validate && nuxt generate",
+    "build:app": "npm run validate && AGILEHRI_STUDIO=true nuxt build",
+    "start": "node .output/server/index.mjs",
     "preview": "npx serve .output/public"
   },
   "dependencies": {
     "@nuxt/content": "^3.0.0",
-    "nuxt": "^4.0.0"
+    "nuxt": "^4.0.0",
+    "nuxt-studio": "1.8.2"
   },
   "engines": {
     "node": ">=22.5"
