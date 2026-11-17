@@ -81,6 +81,26 @@ site stays as it was: the **Actions** tab shows a red cross and, under
 - **Menu**: a new page isn't in the menu until it is added in **Menu and
   footer**.
 
+### Catalogue (mockup data)
+
+`/catalogue` lists the modules with search and filters; each module has its
+page at `/catalogue/<file name>`. **All current modules and organisations are
+fictitious** (lorem ipsum, "(fictitious)" names, `github.com/example` links);
+the pages say so.
+
+- **Catalogue · Modules**: one entry per module. Sector, TRL and licence are
+  drop-downs; **categories** are chosen from the category list (several
+  allowed); **keywords** are free words that only feed the search. **Draft**
+  works as for pages (no card, no page).
+- **Catalogue · Categories**: the list of categories. The **identifier** is
+  stored in the modules: don't change it once modules use it (the check below
+  stops the publication if a module points to a category that doesn't exist).
+- **Search and filters** run in the visitor's browser: text (name, summary,
+  organisation, project, technologies, keywords, categories; case- and
+  accent-insensitive), categories (any of the selected), sector, minimum TRL.
+  They live in the address (`/catalogue?category=perception&trl=6&q=lidar`),
+  so a filtered view can be shared. Without JavaScript all cards are shown.
+
 ## Working on the design (maintainer)
 
 Needs Node.js **22.5 or newer** (Nuxt Content uses Node's built-in SQLite).
@@ -89,7 +109,8 @@ Without it locally, use Docker:
 ```bash
 npm install          # or: docker run --rm -it -v "$PWD":/app -w /app -p 3000:3000 node:22 npm install
 npm run dev          # http://localhost:3000, reloads on every change
-npm run generate     # the static site in .output/public (what GitHub Pages serves)
+npm run validate     # check every content file (what GitHub runs before building)
+npm run generate     # check + the static site in .output/public (what GitHub Pages serves)
 ```
 
 | Path | What |
@@ -97,6 +118,7 @@ npm run generate     # the static site in .output/public (what GitHub Pages serv
 | `app/pages/index.vue` | The Home page: reads `content/home.yml` |
 | `app/pages/[...slug].vue` | Every other page: reads `content/pages/<route>.yml`, one component per section |
 | `app/components/section/` | The section types (Hero, Text, Cards, Quote, ImageText, Discord) |
+| `app/pages/catalogue/index.vue`, `[slug].vue`, `app/components/ModuleCard.vue` | The catalogue: list with search and filters, module page, card |
 | `app/app.vue`, `app/components/` | Layout: top bar (`SiteHeader`) and footer (`SiteFooter`), from `content/site.yml` |
 | `app/assets/css/main.css` | The whole look (colours, sizes, breakpoints), ported from the WordPress theme |
 | `schemas.ts` | The fields of every content file, in one place |
