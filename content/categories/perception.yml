@@ -1,4 +1,4 @@
-id: perception
+key: perception
 label: Perception
 description: 'Seeing and understanding the scene: people, objects, gestures.'
-order: 1
+position: 1

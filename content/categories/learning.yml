@@ -1,4 +1,4 @@
-id: learning
+key: learning
 label: Learning from demonstration
 description: Robots that learn a task by watching a person.
-order: 5
+position: 5

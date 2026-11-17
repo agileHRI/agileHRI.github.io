@@ -232,7 +232,7 @@ content:
           collection: categories
           multiple: true
           min: 1
-          value: "{fields.id}"
+          value: "{fields.key}"
           label: "{fields.label}"
       - { name: keywords, label: Keywords (free words for the search), type: string, list: true }
       - name: trl
@@ -261,13 +261,13 @@ content:
     path: content/categories
     format: yaml
     filename:
-      template: "{fields.id}.yml"
+      template: "{fields.key}.yml"
       field: false
     view:
       primary: label
     fields:
       - { name: label, label: Category name, type: string, required: true }
-      - { name: id, label: "Identifier (lower case, no spaces; don't change it once modules use it)", type: string, required: true }
+      - { name: key, label: "Identifier (lower case, no spaces; don't change it once modules use it)", type: string, required: true }
       - { name: description, label: Short description, type: text }
-      - { name: order, label: Order in the filters, type: number }
+      - { name: position, label: Position in the filters (1 = first), type: number }
 

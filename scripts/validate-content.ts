@@ -36,13 +36,13 @@ check('content/home.yml', home)
 check('content/site.yml', site)
 for (const file of filesIn('content/pages')) check(file, page)
 
-// Categories: the file name must be the id (Pages CMS names it that way).
+// Categories: the file name must be the key (Pages CMS names it that way).
 const categoryIds = new Set<string>()
 for (const file of filesIn('content/categories')) {
   const c = check(file, category)
   if (!c) continue
-  if (!file.endsWith(`/${c.id}.yml`)) errors.push(`${file}: id "${c.id}" must match the file name (${c.id}.yml)`)
-  categoryIds.add(c.id)
+  if (!file.endsWith(`/${c.key}.yml`)) errors.push(`${file}: key "${c.key}" must match the file name (${c.key}.yml)`)
+  categoryIds.add(c.key)
 }
 
 // Modules: every category they use must exist (checked even when another

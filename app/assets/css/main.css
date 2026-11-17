@@ -136,3 +136,16 @@ a { color: var(--ah-teal); }
 .ah-rich a { color: var(--ah-teal); font-weight: 600; }
 .ah-rich blockquote { margin: 0; padding-left: 14px; border-left: 3px solid var(--ah-teal-l); color: var(--ah-mid); }
 .ah-rich :is(h2, h3, h4) a { color: inherit; text-decoration: none; font-weight: inherit; } /* subheadings are self-links (shareable #anchor); don't look like links */
+
+/* --- Catalogue (module card: the ARISE pack prototype's .mod-card) ---------------- */
+.ah-mod { background: #fff; border: 1px solid var(--ah-gray); border-radius: 8px; overflow: hidden; transition: all .2s; display: flex; flex-direction: column; position: relative; }
+.ah-mod-top { background: var(--ah-teal); padding: 14px 16px; }
+.ah-badge { display: inline-block; font-size: .62rem; font-weight: 700; padding: 2px 8px; border-radius: 8px; text-transform: uppercase; background: rgba(255,255,255,.2); color: #fff; margin-bottom: 6px; }
+.ah-mod-top h3 { color: #fff; font-size: 1.1rem; }
+.ah-mod-exp { font-size: .72rem; color: rgba(255,255,255,.75); margin-top: 4px; }
+.ah-mod-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.ah-mod-desc { font-size: .85rem; color: #333; line-height: 1.55; }
+.ah-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.ah-stack-line { font-size: .72rem; color: var(--ah-mid); margin-top: auto; }
+.ah-mockup { background: var(--ah-orange-l); border: 1px dashed var(--ah-orange); color: #7a2e00; border-radius: 6px; padding: 8px 12px; font-size: .82rem; }
+.ah-count { font-size: .8rem; color: var(--ah-mid); }

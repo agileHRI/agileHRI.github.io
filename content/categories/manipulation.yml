@@ -1,4 +1,4 @@
-id: manipulation
+key: manipulation
 label: Manipulation
 description: Grasping, handing over and assembling.
-order: 3
+position: 3

@@ -1,4 +1,4 @@
-id: human-interaction
+key: human-interaction
 label: Human interaction
 description: Speech, gestures and shared tasks with people.
-order: 4
+position: 4

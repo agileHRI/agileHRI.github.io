@@ -67,12 +67,13 @@ export const page = z.object({
   ])).default([]),
 })
 
-// Catalogue: what a module does (editable list). Modules store the category id.
+// Catalogue: what a module does (editable list). Modules store the category key.
+// (Not "id" or "order": Nuxt Content reserves "id", and "order" is an SQL keyword.)
 export const category = z.object({
-  id: z.string().regex(/^[a-z0-9-]+$/, 'lower case letters, digits and dashes only'),
+  key: z.string().regex(/^[a-z0-9-]+$/, 'lower case letters, digits and dashes only'),
   label: text,
   description: z.string().optional(),
-  order: z.number().default(99),
+  position: z.number().default(99),
 })
 
 // Catalogue: one file per module, content/modules/<slug>.yml -> /catalogue/<slug>
