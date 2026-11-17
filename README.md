@@ -124,3 +124,9 @@ published page links to.
   section type shows its label in the "add section" menu).
 - **Drafts are readable on GitHub** while the repository is public (GitHub
   Pages on the organisation's free plan needs a public repository).
+- **Dependency advisories** (2026-11-17, GitHub Dependabot): `zod` (memory use
+  validating oversized data) and `minimatch` (slow crafted glob patterns), both
+  pulled in by Nuxt / Nuxt Content and used only at build time on our own
+  content; the published site is static files and doesn't run them.
+  `npm audit fix` can't update them without going back to Nuxt Content 2;
+  update when Nuxt releases fixed versions (`npm update`, then test a build).
