@@ -18,7 +18,8 @@ export default defineContentConfig({
     home: defineCollection({ type: 'data', source: 'home.yml', schema: home }),
     site: defineCollection({ type: 'data', source: 'site.yml', schema: site }),
     // One Markdown file per page: content/pages/<route>.md -> /<route>
-    pages: defineCollection({ type: 'page', source: { include: 'pages/*.md', exclude: drafts('pages') }, schema: page }),
+    // prefix '/': the page's address is /<route>, not /pages/<route> (Studio opens that address)
+    pages: defineCollection({ type: 'page', source: { include: 'pages/*.md', prefix: '/', exclude: drafts('pages') }, schema: page }),
     // Catalogue: categories (editable list) and modules (one file each).
     categories: defineCollection({ type: 'data', source: 'categories/*.yml', schema: category }),
     modules: defineCollection({ type: 'data', source: { include: 'modules/*.yml', exclude: drafts('modules') }, schema: module }),

@@ -7,7 +7,7 @@ const route = useRoute()
 // filter(Boolean): /events/ (trailing slash, as GitHub Pages serves it) is the same page as /events
 const slug = computed(() => ([] as string[]).concat(route.params.slug || []).filter(Boolean).join('/'))
 const { data: page } = await useAsyncData(`page-${slug.value}`, () =>
-  queryCollection('pages').where('stem', '=', `pages/${slug.value}`).where('draft', '=', false).first())
+  queryCollection('pages').path(`/${slug.value}`).where('draft', '=', false).first())
 if (!page.value) throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 useSeoMeta({ title: () => page.value?.title, description: () => page.value?.description })
 
